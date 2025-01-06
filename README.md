@@ -31,31 +31,37 @@ Architecture overview:
 ### User Interface of JS Web app📱:
 
 The UI of the JavaScript Web Application is more complex than that of the MVC Application. 
-![UI](https://github.com/user-attachments/assets/2c008761-c8be-4511-9547-a0214765d75c)
+![UI](https://github.com/user-attachments/assets/fc4d6e98-bd2e-4075-9280-60339355f38d)
 
-Inbuilt help:
-![UI_Help](https://github.com/user-attachments/assets/c5da45a4-ba50-4334-a6db-3b14518fa0eb)
+
+### Inbuilt help:
+![UI_Help](https://github.com/user-attachments/assets/f360dc6f-f878-41b3-b856-3e0a74b41fca)
+
 
 
 ## Data handling📮
 Examples of CRUD functionality with different data formats:
 
 ### 1. GET Request in JSON Format
-![GET_JSON](https://github.com/user-attachments/assets/fbf01186-c769-40bc-a4d2-e6c769e5b2bc)
+![GET_JSON](https://github.com/user-attachments/assets/f14ed47f-5c2d-4d4e-b3c4-012c59585daa)
+
 
 ### 2. POST Request in XML Format
-![POST_XML](https://github.com/user-attachments/assets/4e453947-5a7b-48c0-a4bd-184dade80c7f)
-![POST_XML_Success](https://github.com/user-attachments/assets/130bfea0-9dee-4260-a40b-5a16efc0491b)
+![POST_XML](https://github.com/user-attachments/assets/851139d1-b65a-4204-82c8-70f3f4bbfc42)
+![POST_XML_Success](https://github.com/user-attachments/assets/1b66f8c2-4ce7-4790-9935-b6ec6247a414)
+
 
 ### 3. PUT Request in TXT:
-![PUT_TXT](https://github.com/user-attachments/assets/72ce2032-6a63-430d-84a6-0aca9d2b9295)
-![PUT_TXT_devtools](https://github.com/user-attachments/assets/e443af52-78b1-4314-82e8-530f2fd867d9)
+![PUT_TXT](https://github.com/user-attachments/assets/94c43ba7-3cd9-49d5-8b4f-dbd30a1c81aa)
+![PUT_TXT_devtools](https://github.com/user-attachments/assets/b8bbcc5f-51b5-483b-acd2-7f71ea30868e)
+
 
 
 ### Search Functionality🔎:
 
 The JS web app can use search functionality within the table, and also make GET requests for films with specific years or titles
-![Search](https://github.com/user-attachments/assets/24a271ef-c431-4c76-a66e-01c8ee1289ac)
+![Search](https://github.com/user-attachments/assets/9ec8771a-3f3c-4a43-8bef-281bf9e3acc4)
+
 
 NOTE: A design choice was made to retrieve films for search results in JSON format. The project demonstrates the ability to retrieve data in all formats for the other GET requests. With this successfully demonstrated the decision was made to just use JSON exclusively as it is the quickest retrieval method in comparison to text or XML.
 
