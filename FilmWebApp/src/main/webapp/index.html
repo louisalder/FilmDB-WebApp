@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MovieDB</title>
+
+<!-- Icon Packs -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+<!-- fonts & Icon Packs -->
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+
+<!-- style sheets -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+
+
+
+
+
+
+<!-- Setting the style for background, modal background, text  -->
+<style>
+body {
+	background-color: #C9E0F8;
+}
+
+.modal-backdrop {
+	backdrop-filter: blur(200px);
+	background-image: linear-gradient(to bottom, #007bff, #6f42c1);
+}
+
+.formatDropdown {
+	background-image: linear-gradient(to bottom, rgba(201, 224, 248, 0.3),
+		rgba(111, 66, 193, 0.3));
+}
+
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
+}
+
+h1, h3 {
+	font-family: 'Noto Serif', serif;
+}
+</style>
+
+
+
+
+</head>
+
+
+<body>
+
+
+
+
+
+	<h1>
+		Film DB <small class="text-muted">By Louis Alder</small>
+	</h1>
+
+
+
+
+
+	<!-- Navigation -->
+	<div class="container-fluid">
+		<nav class="navbar navbar-light bg-light">
+
+
+			<span class="material-symbols-outlined"> movie </span>
+
+			<div class="d-flex justify-content-center">
+				<form class="form-inline">
+
+
+					<input class="form-control mr-sm-2" type="search"
+						placeholder="Search by..." aria-label="Search">
+
+
+					<div class="btn-group btn-group-toggle" data-toggle="buttons">
+						<label class="btn btn-outline-dark active"> <input
+							type="radio" name="options" id="yearSearch" autocomplete="off"
+							checked> Year
+						</label> <label class="btn btn-outline-dark"> <input type="radio"
+							name="options" id="titleSearch" autocomplete="off"> Title
+						</label>
+					</div>
+
+					<button class="btn btn-outline-dark" type="submit"
+						id="searchButton">
+						<span class="material-symbols-outlined"> search </span>
+					</button>
+				</form>
+			</div>
+
+		</nav>
+	</div>
+
+
+
+
+
+
+<!-- buttons  -->
+	<div class="d-flex justify-content-around">
+
+		<div class=mt-3>
+			<button id="helpButton" class="btn btn-outline-dark"
+				data-toggle="modal" data-target="#helpModal">
+				<span class="material-symbols-outlined"> question_mark </span>
+			</button>
+		</div>
+
+
+		<div class=mt-3>
+			<button id="addNewFilm" class="btn btn-outline-dark"
+				data-toggle="modal" data-target="#addModal">
+				<span class="material-symbols-outlined">add</span><span
+					class="material-symbols-outlined"> videocam </span>
+			</button>
+		</div>
+
+
+		<div class=mt-3>
+			<button id="settingsButton" class="btn btn-outline-dark">
+				<span class="material-symbols-outlined">settings</span>
+			</button>
+
+		</div>
+	</div>
+
+
+
+
+	<div class="d-none" id="settings">
+
+		<div class="formatDropdown">
+			<div class="d-flex justify-content-around">
+				<div class=m-4>
+					<P>Select a Format to retrieve the data in:</P>
+					<select id="format" class="form-select"
+						aria-label="Default select example">
+						<option value="JSON">JSON</option>
+						<option value="XML">XML</option>
+						<option value="Text">Text</option>
+
+					</select>
+				</div>
+
+
+				<div class=m-4>
+					<P>Select a Format to return the data in:</P>
+					<select id="formatOut" class="form-select"
+						aria-label="Default select example">
+						<option value="JSON">JSON</option>
+						<option value="XML">XML</option>
+						<option value="Text">Text</option>
+
+					</select>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+	<!-- Modal for adding films -->
+	<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+		aria-labelledby="addModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addModalLabel">Add Film</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="addFilm">
+						<div class="form-group">
+							<label for="title">Title</label> <input type="text"
+								class="form-control" id="title" name="title" placeholder="Title">
+						</div>
+						<div class="form-group">
+							<label for="year">Year</label> <input type="text"
+								class="form-control" id="year" name="year" placeholder="Year">
+						</div>
+						<div class="form-group">
+							<label for="director">Director</label> <input type="text"
+								class="form-control" id="director" name="director"
+								placeholder="Director">
+						</div>
+						<div class="form-group">
+							<label for="stars">Stars</label> <input type="text"
+								class="form-control" id="stars" name="stars" placeholder="Stars">
+						</div>
+						<div class="form-group">
+							<label for="review">Review</label>
+							<textarea class="form-control" id="review" name="review" rows="3"
+								placeholder="Review"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+
+
+
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Modal for search -->
+	<div class="modal fade" id="searchModal" tabindex="-1" role="dialog"
+		aria-labelledby="searchModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addModalLabel">Search Results:</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+
+					<h3 class="m-4">Results</h3>
+					<div class="table-responsive">
+						<table id="search-table" class="table table-hover">
+							<thead>
+								<tr>
+									<th>Title</th>
+									<th>Year</th>
+									<th>Director</th>
+									<th>Stars</th>
+									<th>Review</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody id="searchContent">
+							</tbody>
+
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Modal for modify button -->
+	<div class="modal fade" id="modifyModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modify Film</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div id="modifyForm">
+						<form id="modifyFilm">
+							<div class="form-group">
+								<label for="title">Title</label> <input type="text"
+									class="form-control" id="title" name="title"
+									placeholder="Title">
+							</div>
+							<div class="form-group">
+								<label for="year">Year</label> <input type="text"
+									class="form-control" id="year" name="year" placeholder="Year">
+							</div>
+							<div class="form-group">
+								<label for="director">Director</label> <input type="text"
+									class="form-control" id="director" name="director"
+									placeholder="Director">
+							</div>
+							<div class="form-group">
+								<label for="stars">Stars</label> <input type="text"
+									class="form-control" id="stars" name="stars"
+									placeholder="Stars">
+							</div>
+							<div class="form-group">
+								<label for="review">Review</label>
+								<textarea class="form-control" id="review" name="review"
+									rows="3" placeholder="Review"></textarea>
+							</div>
+
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal for modify button -->
+	<div class="modal fade" id="helpModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">How to Use</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div>
+						<h3>Welcome to my Film DB</h3>
+
+
+						<p class=mt-2>This Web Application and RESTful API offers full
+							CRUD functionality, with the option to change the data formats
+							data is exchanged in to whatever you like. For example, within
+							the webapp you can format data in as JSON for GET requests, and
+							data for POST and PUT requests as XML.</p>
+
+						<p>The search functionality always retrieves data in JSON
+							format.</p>
+
+					</div>
+
+
+					<h3>Help</h3>
+
+
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Function</th>
+								<th>Steps
+								<th>Button</th>
+							</tr>
+						</thead>
+
+
+						<tbody>
+
+							<tr>
+								<td>Adding data</td>
+								<td>When interacting with the site, to add a film, use the
+									following button</td>
+								<td><button class="btn btn-outline-dark">
+										<span class="material-symbols-outlined">add</span><span
+											class="material-symbols-outlined"> videocam </span>
+									</button></td>
+							</tr>
+
+
+
+							<tr>
+								<td>Modify</td>
+								<td>When interacting with the site, to modify a film, use
+									the following button</td>
+								<td>
+									<button class="btn btn-outline-dark">
+										<span class="material-symbols-outlined">edit</span>
+									</button>
+								</td>
+
+							</tr>
+
+
+
+							<tr>
+								<td>Delete</td>
+								<td>When interacting with the site, to Delete a film, use
+									the following button</td>
+								<td><button class="btn btn-outline-dark">
+										<span class="material-symbols-outlined">delete</span>
+									</button></td>
+							</tr>
+
+
+
+							<tr>
+								<td>Settings</td>
+								<td>To change the formats data is sent and received in, go
+									into the settings using the below button</td>
+								<td><button class="btn btn-outline-dark">
+										<span class="material-symbols-outlined">settings</span>
+									</button></td>
+							</tr>
+
+						</tbody>
+
+					</table>
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!-- film table  -->
+	<h3 class="m-4">Films!</h3>
+	<div class="table-responsive">
+
+
+		<table id="films-table" class="table table-hover">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Year</th>
+					<th>Director</th>
+					<th>Stars</th>
+					<th>Review</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody id="tableContent">
+			</tbody>
+
+		</table>
+	</div>
+
+
+
+
+
+	<p>Designed by Louis Alder</p>
+	<p>University ID: 20102890</p>
+</body>
+
+
+
+
+<!-- scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+<script src="./scripts/ajax-utils.js"></script>
+<script src="./scripts/film.js"></script>
+
+
+</html>
