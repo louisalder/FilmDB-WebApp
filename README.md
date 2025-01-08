@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This repository contains the code for a film rating web application. There is two variants of the app, an MVC app and a JavaScript Web app. Server side code can also be found for the REST API. The application allows users to perform CRUD (Create, update and delete) operations on a film database which sits server-side in a variety of formats.
+This repository contains full stack code for a film rating web application. There is two variants of the app, an MVC app and a JavaScript Web app. Server side code can also be found for the REST API. The application allows users to perform CRUD (Create, update and delete) operations on a film database which sits server-side in a variety of formats.
 
 The user can GET request and send data (with PUT and DELETE) in .xml, .txt, .json formats to perform these CRUD operations. The applications demonstrates my ability to interact with various data formats from a client machine and push it to a SQL DB without hibernate or spring frameworks. The application can be deployed to a cloud provider, such as Azure or AWS.
 
